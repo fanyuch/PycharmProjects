@@ -1,7 +1,7 @@
 #coding: gbk
-import chardet
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+import chardet                         #检测字符类型的类
+from wordcloud import WordCloud        #词云库
+import matplotlib.pyplot as plt        #数学绘图库
 
 with open("C:\\Users\\fyc\\Desktop\\virgo.txt", "r") as f:
     text = f.read()
