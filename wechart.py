@@ -55,7 +55,7 @@ def friendCloud():
 
     my_wordcloud = WordCloud(
         font_path="C:\\Windows\\Fonts\\STFANGSO.ttf",
-        max_words=3000,
+        max_words=1000,
         scale=1.5,
         relative_scaling=1,
         max_font_size=400,

@@ -8,18 +8,12 @@ if __name__ == '__main__':
     text_jieba = jieba.cut(text, cut_all=True)
     text_split = "".join(text_jieba)
 
-    my_wordcloud = WordCloud().generate(text_split)
-
-
+    my_wordcloud = WordCloud(
+        background_color="white",
+    ).generate(text_split)
     plt.imshow(my_wordcloud)
     plt.axis("off")
     plt.show()
-    pass
-
-pass
-pass
-pass
-
 
 
 
