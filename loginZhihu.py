@@ -1,5 +1,7 @@
+#-*- coding utf-8 -*-
 import re
-from urllib import parse, request
+from urllib import parse
+from urllib import request
 import http.cookiejar
 from PIL import Image
 import time
@@ -72,14 +74,14 @@ def login(username, password):
     r = opener.open(url, post_data)
     result = r.read().decode('utf-8')
 
-    '''x = json.loads(result)
+    x = json.loads(result)
     y = x["r"]
     if (json.loads(result))["r"] == 1:
         data['captcha'] = get_captcha()
         post_data = parse.urlencode(data).encode('utf-8')
         r = opener.open(url, post_data)
         result = r.read().decode('utf-8')
-        print((json.loads(result))['msg'])'''
+        print((json.loads(result))['msg'])
 
     cookie.save(ignore_discard= True, ignore_expires=True)
 
@@ -100,8 +102,7 @@ if __name__ == '__main__':
         secret = input('input passport')
         login(account, secret)
 
-def printName():
-    print(__name__)
+
 
 
 
