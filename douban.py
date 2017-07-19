@@ -6,9 +6,8 @@ import HTMLParser
 
 class doubanClitne(object):
     def __init__(self):
-        self.headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
+        self.headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"}
         self.session = requests.session()
-
 
     def login(self,
               username,
@@ -27,6 +26,7 @@ class doubanClitne(object):
         login_url = "https://accounts.douban.com/login"
         respone = self.session.get(login_url)
 
+
         (captcha_id, captcha_url) = prepCaptcha(respone.content)
 
         if captcha_id:
@@ -43,19 +43,13 @@ class doubanClitne(object):
             data["captcha-id"] = captcha_id
             data["captcha-solution"] = captcha_solution
 
-
-
-
         try:
             self.session.post(login_url, data=data, headers=self.headers)
         except Exception, e:
             print e.message
         pass
 
-
-
         print self.session.get("https://www.douban.com").content
-
 
 
 def prepCaptcha(content):
@@ -65,8 +59,8 @@ def prepCaptcha(content):
             self.captcha_id = None
             self.captcha_url = None
 
-        def _attrs(attr, attrname):
-            for i in attr:
+        def _attr(attrs, attrname):
+            for i in attrs:
                 if i[0] == attrname:
                     return i[1]
             return None
